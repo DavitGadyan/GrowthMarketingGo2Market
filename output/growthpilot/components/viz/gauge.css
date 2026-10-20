@@ -1,0 +1,30 @@
+/* Readiness gauge - segment hover/focus, needle sweep, tooltip. Tokens come from globals.css. */
+.gauge { position: relative; display: inline-block; max-width: 100%; }
+.gauge svg { display: block; width: 100%; height: auto; overflow: visible; }
+.gauge-segs > * { opacity: 1; transition: opacity 300ms var(--ease-out), stroke-width 150ms var(--ease-out); @starting-style { opacity: 0; } }
+.gauge-seg { cursor: pointer; outline: none; }
+@media (hover: hover) and (pointer: fine) { .gauge-seg:hover { stroke-width: 18; } }
+.gauge-seg[data-active="true"] { stroke-width: 18; }
+.gauge-ring { pointer-events: none; opacity: 1; transition: opacity 150ms var(--ease-out); @starting-style { opacity: 0; } }
+.gauge-needle-g { transform-box: view-box; transition: transform 900ms var(--ease-out); will-change: transform; }
+.gauge-value { cursor: pointer; transition: fill var(--dur-fast) ease; }
+.gauge-value:hover, .gauge-value:focus-visible { fill: var(--color-accent); outline: none; }
+.gauge-tip {
+  position: absolute; left: 50%; bottom: calc(100% + 6px); transform: translateX(-50%);
+  width: 260px; max-width: calc(100vw - 32px); z-index: 20; text-align: left; pointer-events: none;
+  background: #fff; border: 1px solid var(--color-stroke); border-radius: 12px; box-shadow: var(--shadow-pop); padding: 10px 12px;
+}
+.gauge-legend { display: flex; justify-content: center; gap: 14px; margin-top: 6px; }
+.gauge-legend button { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; line-height: 16px; color: var(--color-muted-strong); border-radius: 999px; padding: 2px 6px; transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out); }
+.gauge-legend button:hover, .gauge-legend button[data-active="true"] { background: var(--color-ground); color: var(--color-ink); }
+.gauge-legend .dot { width: 8px; height: 8px; border-radius: 999px; transition: transform 150ms var(--ease-out); }
+.gauge-legend button[data-active="true"] .dot { transform: scale(1.35); }
+/* Results page helpers */
+.row-hover { transition: background-color var(--dur-fast) var(--ease-out); }
+.row-hover:hover { background: var(--color-ground); }
+.pill-swap { display: inline-flex; opacity: 1; transition: opacity 200ms var(--ease-out); @starting-style { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .gauge-needle-g { transition-duration: 0ms; }
+  .gauge-segs > * { transition-property: opacity, stroke-width; }
+  .gauge-legend .dot { transition: none; }
+}

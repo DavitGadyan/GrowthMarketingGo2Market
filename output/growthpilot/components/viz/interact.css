@@ -1,0 +1,83 @@
+/* Interaction layer for Ideas / Templates / Agents / Integrations / Settings.
+   transform + opacity only; curves and durations come from globals.css tokens. */
+
+/* --- presence (crossfade lists) --- */
+.ix-presence { transition: opacity 180ms var(--ease-out), transform 180ms var(--ease-out); }
+.ix-presence[data-closing] { opacity: 0; transform: translateY(4px); pointer-events: none; }
+.stagger > .ix-presence[data-closing] { transition-duration: 180ms; transition-delay: 0ms; }
+
+/* --- rows --- */
+.ix-row { transition: background-color var(--dur-fast) ease; }
+.ix-row[data-hot], .ix-row:hover { background: var(--color-ground); }
+.ix-caret { transition: transform var(--dur-ui) var(--ease-out); }
+.ix-caret[data-open="false"] { transform: rotate(-90deg); }
+
+/* --- bubbles --- */
+.bubble.ix-dim { opacity: 0.6; transition-duration: 150ms; transition-delay: 0ms; }
+.bubble.ix-hot circle { transition: stroke-width 150ms var(--ease-out); }
+.ix-pop { transform-box: fill-box; transform-origin: center; animation: ix-pop 200ms var(--ease-out); }
+@keyframes ix-pop { 0% { transform: scale(1); } 50% { transform: scale(1.08); } 100% { transform: scale(1); } }
+
+/* --- pending dots / pulse --- */
+.ix-dots { display: inline-flex; gap: 4px; align-items: center; height: 16px; }
+.ix-dots i { width: 6px; height: 6px; border-radius: 999px; background: currentColor; opacity: 0.35; animation: ix-dot 1.2s ease-in-out infinite; }
+.ix-dots i:nth-child(2) { animation-delay: 150ms; } .ix-dots i:nth-child(3) { animation-delay: 300ms; }
+@keyframes ix-dot { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+.ix-pulse { position: relative; display: inline-grid; place-items: center; }
+.ix-pulse::before { content: ""; position: absolute; width: 14px; height: 14px; border-radius: 999px; background: var(--color-accent); opacity: 0.35; animation: ix-ring 1.4s ease-in-out infinite; }
+@keyframes ix-ring { 0% { transform: scale(0.6); opacity: 0.45; } 100% { transform: scale(1.6); opacity: 0; } }
+.ix-dot { transition: background-color 300ms var(--ease-out); }
+
+/* --- template cards --- */
+.ix-tcard { transition: transform 150ms ease, box-shadow 150ms ease; }
+.ix-waves { transition: transform 300ms var(--ease-in-out); will-change: transform; }
+.ix-preview { opacity: 0; transition: opacity 150ms var(--ease-out); pointer-events: none; }
+@media (hover: hover) and (pointer: fine) {
+  .ix-tcard:hover { transform: translateY(-2px); box-shadow: var(--shadow-pop); }
+  .ix-tcard:hover .ix-waves { transform: translateX(6px); }
+  .ix-tcard:hover .ix-preview, .ix-tcard:focus-visible .ix-preview { opacity: 1; }
+  .ix-lift { transition: transform 150ms ease, box-shadow 150ms ease; }
+  .ix-lift:hover { transform: translateY(-2px); box-shadow: var(--shadow-pop); }
+}
+.ix-tcard:focus-visible .ix-preview { opacity: 1; }
+.ix-badge { transition: background-color var(--dur-ui) var(--ease-out), color var(--dur-ui) var(--ease-out); }
+.ix-badge.is-bump { animation: ix-bump 200ms var(--ease-out); }
+@keyframes ix-bump { 0% { transform: scale(1); } 50% { transform: scale(1.12); } 100% { transform: scale(1); } }
+.ix-slice { transform-box: fill-box; transform-origin: center; transition: transform 150ms var(--ease-out), opacity 150ms var(--ease-out); }
+.ix-slice.is-hot { transform: scale(1.04); }
+.ix-slice.is-dim { opacity: 0.55; }
+.ix-clamp { display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* --- run progress (agents) --- */
+.ix-progress { display: flex; gap: 4px; }
+.ix-seg { height: 6px; flex: 1; border-radius: 999px; background: rgba(0, 0, 0, 0.08); transition: background-color 300ms var(--ease-out), opacity 150ms var(--ease-out); }
+.ix-seg[data-status="completed"] { background: var(--color-accent); }
+.ix-seg[data-status="failed"] { background: var(--color-danger); }
+.ix-seg[data-status="running"] { background: var(--color-accent); animation: ix-seg 1.2s ease-in-out infinite; }
+.ix-seg.is-dim { opacity: 0.3; }
+@keyframes ix-seg { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+.ix-ring { transition: box-shadow 150ms var(--ease-out), transform 150ms ease; }
+.ix-ring[data-hot] { box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.4), var(--shadow-pop); }
+
+/* --- tooltips --- */
+.ix-tipwrap { position: relative; display: inline-flex; }
+.ix-tip { position: absolute; left: auto; right: 0; top: calc(100% + 6px); max-width: calc(100vw - 32px); z-index: 20; width: 260px; padding: 8px 10px; border-radius: 10px; background: #fff; border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: var(--shadow-pop); font-size: 12.5px; line-height: 18px; color: var(--color-ink); opacity: 0; transform: translateY(4px); pointer-events: none; transition: opacity 150ms var(--ease-out), transform 150ms var(--ease-out); }
+.ix-tipwrap:hover .ix-tip, .ix-tipwrap:focus-within .ix-tip { opacity: 1; transform: translateY(0); }
+
+/* --- toggle (Controls) --- */
+.toggle.ix-toggle::after { transition: transform 160ms var(--ease-out); }
+.toggle.ix-toggle:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+
+/* --- reduced motion: keep opacity, drop movement --- */
+@media (prefers-reduced-motion: reduce) {
+  .ix-presence, .ix-presence[data-closing] { transform: none; }
+  .ix-caret, .ix-caret[data-open="false"] { transition: none; }
+  .ix-pop, .ix-badge.is-bump { animation: none; }
+  .ix-pulse::before { animation: ix-ring-rm 1.4s ease-in-out infinite; transform: none; }
+  @keyframes ix-ring-rm { 0%, 100% { opacity: 0.1; } 50% { opacity: 0.4; } }
+  .ix-tcard:hover, .ix-lift:hover { transform: none; }
+  .ix-tcard:hover .ix-waves { transform: none; }
+  .ix-slice.is-hot { transform: none; opacity: 1; }
+  .ix-tip { transform: none; }
+  .ix-ring[data-hot] { transform: none; }
+}

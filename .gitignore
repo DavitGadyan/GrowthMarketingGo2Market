@@ -1,0 +1,18 @@
+# python
+backend/.venv/
+backend/**/__pycache__/
+backend/.pytest_cache/
+backend/*.db
+backend/*.db-journal
+# node (the app has its own .gitignore too)
+output/growthpilot/node_modules/
+output/growthpilot/.next/
+# secrets
+.env
+.env.*
+!.env.example
+.DS_Store
+# playwright MCP artefacts (screenshots, snapshots)
+.playwright-mcp/
+# design-critic captures
+output/growthpilot/verify/

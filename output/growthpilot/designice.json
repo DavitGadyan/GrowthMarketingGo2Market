@@ -1,0 +1,164 @@
+{
+  "project": "GrowthPilot",
+  "prompt": "GrowthPilot AI growth marketing GTM agent app",
+  "platform": "web",
+  "company": "GrowthPilot",
+  "overrides": {
+    "primary": "#10B981",
+    "secondary": "#8B5CF6",
+    "font_display": "Space Grotesk",
+    "font_body": "Inter",
+    "sections": [
+      "nav",
+      "dashboard",
+      "wizard",
+      "chat",
+      "market",
+      "matrix",
+      "integrations",
+      "deliverables",
+      "auth"
+    ],
+    "platform": "web",
+    "company": "GrowthPilot"
+  },
+  "notes": [],
+  "template_tokens": {
+    "source": "meta",
+    "roles": {
+      "ground": "#F5F5F7",
+      "surface": "#FFFFFF",
+      "ink": "#1A1A1F",
+      "muted": "#8A8A8F",
+      "accent": "#6B4EFF",
+      "accent2": "#35B0E8"
+    },
+    "fonts": [
+      "Inter",
+      "Inter"
+    ],
+    "style": "minimal",
+    "mode": "light"
+  },
+  "reference_design": {
+    "slug": "growth-marketing-platform",
+    "title": "trueNorth - Growth Marketing Platform",
+    "path": "Growth Marketing Platform",
+    "library": "/Users/dyada/Desktop/Github/designiceui/docs/designs",
+    "media": [
+      "Growth Marketing Platform/image_original1.png",
+      "Growth Marketing Platform/image_original3.png",
+      "Growth Marketing Platform/image_original4.png",
+      "Growth Marketing Platform/image_original5.png",
+      "Growth Marketing Platform/image_original6.png",
+      "Growth Marketing Platform/image_original7.png",
+      "Growth Marketing Platform/image_original8.png"
+    ]
+  },
+  "direction": {
+    "style": "minimal",
+    "all_styles": [
+      "minimal",
+      "soft",
+      "light"
+    ],
+    "industry": [
+      "marketing",
+      "saas",
+      "ai"
+    ],
+    "layout": [
+      "sidebar",
+      "split",
+      "three-pane"
+    ],
+    "mode": "light"
+  },
+  "tokens": {
+    "roles": {
+      "ground": "#F5F5F7",
+      "surface": "#FFFFFF",
+      "ink": "#111114",
+      "muted": "#8A8A8F",
+      "accent": "#10B981",
+      "accent2": "#8B5CF6"
+    },
+    "palette": [
+      "#0B0A0C",
+      "#141316",
+      "#10B981",
+      "#FFFFFF",
+      "#8A8A8F"
+    ],
+    "fonts": [
+      "Plus Jakarta Sans",
+      "Geist"
+    ],
+    "radius": "10px",
+    "shadow": "none",
+    "section_padding_desktop": "112px",
+    "section_padding_mobile": "72px",
+    "density": "tight",
+    "type_scale": {
+      "display": "clamp(2.5rem, 5vw, 4rem)",
+      "h1": "clamp(2rem, 4vw, 3.25rem)",
+      "h2": "clamp(1.5rem, 2.5vw, 2.25rem)",
+      "body": "16px",
+      "leading_display": "1.1"
+    }
+  },
+  "sections": [
+    "shell",
+    "growth",
+    "timeline",
+    "results",
+    "ideas",
+    "templates",
+    "landing",
+    "chat",
+    "setup",
+    "integrations",
+    "settings"
+  ],
+  "motion": [
+    {
+      "technique": "transitions",
+      "tool": "css @starting-style",
+      "note": "route fade, modal/drawer/bulk-bar presence, staggered first-view entrances, gated hover lifts; reduced-motion keeps opacity only"
+    }
+  ],
+  "image_prompts": [
+    {
+      "slot": "hero",
+      "aspect_ratio": "16:9",
+      "prompt": "Wide cinematic hero image for a security, ai website. GrowthPilot. dark-tech, minimal art direction, palette #0B0A0C, #141316, #FF2045, #FFFFFF, no text, no watermark, no UI chrome. Strong single focal point positioned off-centre with generous negative space on the left third for a headline overlay. Shallow depth of field, controlled contrast so white type stays readable over it."
+    },
+    {
+      "slot": "feature-texture",
+      "aspect_ratio": "1:1",
+      "prompt": "Abstract close-up texture evoking security, ai. dark-tech, minimal art direction, palette #0B0A0C, #141316, #FF2045, #FFFFFF, no text, no watermark, no UI chrome. Macro detail, soft directional light, extremely shallow depth of field, reads as a background at low opacity rather than as a subject."
+    },
+    {
+      "slot": "section-support",
+      "aspect_ratio": "4:3",
+      "prompt": "Editorial supporting photograph for a security, ai website section. GrowthPilot. dark-tech, minimal art direction, palette #0B0A0C, #141316, #FF2045, #FFFFFF, no text, no watermark, no UI chrome. Documentary framing, natural light, one human gesture or one object in use, nothing staged or stock-like."
+    },
+    {
+      "slot": "og-card",
+      "aspect_ratio": "16:9",
+      "prompt": "Open Graph share card background for a security, ai brand. dark-tech, minimal art direction, palette #0B0A0C, #141316, #FF2045, #FFFFFF, no text, no watermark, no UI chrome. Simple, high contrast, centre kept visually quiet so a logo and title can be composited on top."
+    }
+  ],
+  "constraints": [
+    "No purple-to-blue gradient on a white card unless the reference design actually uses one.",
+    "No emoji as icons. Use a real icon set or draw inline SVG.",
+    "Body text is never below 15px, and never pure #000 on pure #FFF.",
+    "Every section must differ from its neighbour in background, rhythm or column count - eleven identical centred slabs is the single clearest tell of a generated page.",
+    "Buttons need real hover, focus-visible and active states, not just a colour change.",
+    "Respect prefers-reduced-motion: hold transforms, keep opacity fades.",
+    "Images need explicit width/height or aspect-ratio so nothing shifts on load.",
+    "Ship real copy, not lorem ipsum, and not three-word headlines that say nothing.",
+    "On dark, raise surfaces with a lighter background plus a 1px translucent border - a drop shadow is invisible on black and does nothing."
+  ],
+  "source_description": "My role. UI UX design, product design, design system\n\nProject description.\n\nSiegepal is an AI cybersecurity SaaS platform: autonomous AI agents that run reconnaissance, vulnerability scanning, cloud posture checks, MITRE ATT&CK mapping and report generation for security teams. The capture set is a dark-tech product UI (near-black ground, crimson accent, thin white-8% strokes, 12-16px radius cards, Gilroy display + Helvetica body) covering a marketing hero plus the full logged-in app shell.\n\nScreens in the mosaics:\n- Marketing hero: top nav (Home, Agents, Pricing, Contact, Docs, \"Start Free\"), huge two-line display headline \"Autonomous AI Agents for Cybersecurity\", stat pills (13 AI Agents, 30+ Integrations), a floating terminal card streaming agent log lines ([Agent: Reconnaissance] Scanning target... Found 47 subdomains... Detected 12 critical vulnerabilities), primary pill CTA with crimson gradient edge and a video button; mobile hero with ring-stat cluster (1B+ vulnerabilities found, 10M+ scans, 99.9% uptime, 500+ security teams).\n- App shell: left sidebar with logo, collapse chevron, nav items Dashboard, Agents, Chat, Cloud Inventory, MITRE ATT&CK, Tools, Reports, Settings (active item = crimson gradient fade pill); top-right bell + avatar buttons.\n- Dashboard: \"Welcome back, Mihai\" + subtitle, 4-up KPI row (Active Agents 8 +3%, Vulnerabilities 42 +12%, Scans 23 +5%, Compliance Score 93% +3%) each a card with big number, label and green delta; \"Recent Activities\" table (Time, Agent, Action, Status with coloured status text) with \"View all\" link; action row: primary gradient pill \"Start New Scan\" left, white pills \"View All Reports\" and \"Configure Agents\" right.\n- Cloud Inventory: title + subtitle, 4-up KPI row (Total Resources, Active Resources, Recently Deleted, Security Events), \"Resource Inventory\" with segmented control (List view / Graph view / Security events) and CSP dropdown, bar chart \"Resources by Type\", donut \"CSP Distribution\" with legend, full-width line chart \"Resource Trends\".\n- Settings & Configuration with a centered 3-step modal \"Connect AWS Account\" (stepper, Step 2 Enter Credentials: two-column form fields, region select, toggle \"Scan all regions\", crimson security note box, Back (white) / Next (gradient) buttons).\n- AI Agent Chat: title + subtitle, chat panel with user bubbles right-aligned and agent bubbles left with avatar, composer \"Ask AI Agents to perform security tasks\" with send button; right rail: \"Active Agents\" two cards with status dot, \"Command Execution Log\" timestamped list, \"Live Discoveries\" cards (Misconfiguration / Vulnerability / Policy Issue with High/Medium/Low severity chips).\n- MITRE ATT&CK Framework: search field, Load Template (white) / Export (gradient) buttons, view tabs (Matrix, List, Flow, Heat Map), legend (Rare/Moderate/Common/Critical/Selected), tactic columns (Initial Access, Execution, Persistence) with technique tiles coloured by frequency.\n- Reports: title, \"Ask AI to generate reports\" search, 4 KPI tiles (Total Reports, Scheduled, Generated This Week, Pending Review) with New Report / Schedule / Export buttons, \"Report Templates\" filter tabs (All, Security, Compliance, Custom) and a 3x2 grid of template cards (icon, name, category chip, description, sections/agents/time/coverage meta, progress bar, Generate button + preview/settings icon buttons), \"Recent Reports\" list rows (icon, title, generated-by meta, status + format chips, row actions), \"Scheduled Reports\" toggles, \"AI Report Assistant\" panel with suggestion chips and \"Generate with AI\" button.\n- Auth: split \"Create Account\" screen (left hero image + trial benefits checklist + trust badges, right glass form with Google/GitHub buttons, email form, gradient CTA).\n- Style guide pages: colors (strokes: white 8%, crimson gradient #FF2045, #F54562), fonts (Gilroy Bold 72/52, Medium 40/28/16; Helvetica Regular 16/14/12), 81 icons, sidebar states.\n\nSkills and deliverables\n\nUX & UI\nDashboard design\nDesign system\nDark mode SaaS\nSecurity product UI"
+}
